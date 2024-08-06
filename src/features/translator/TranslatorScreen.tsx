@@ -1,11 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useTranslations } from 'lib/hooks'
+import {
+  Confidence,
+  ExchangeLanguage,
+  Loader,
+  SelectLanguage,
+  TextCounter,
+  TextInput,
+} from 'lib/components'
 
 export const TranslatorScreen: React.FunctionComponent = () => {
-  const T = useTranslations()
-
-  return <Container>{T.companyName}</Container>
+  return (
+    <Container>
+      <TranslatorContainer>
+        <InputContainer>
+          <SelectLanguage />
+          <TextInput />
+          <Loader />
+          <InputFooter>
+            <Confidence />
+            <TextCounter />
+          </InputFooter>
+        </InputContainer>
+        <ExchangeLanguage />
+        <InputContainer>
+          <SelectLanguage />
+          <TextInput />
+          <Loader />
+        </InputContainer>
+      </TranslatorContainer>
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -13,4 +38,20 @@ const Container = styled.div`
   flex-direction: column;
   flex: 1;
   color: ${({ theme }) => theme.colors.typography};
+`
+const TranslatorContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 50px;
+`
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const InputFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `
