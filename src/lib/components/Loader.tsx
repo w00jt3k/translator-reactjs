@@ -1,6 +1,12 @@
+import React from 'react'
 import styled from 'styled-components'
 
-export const Loader = () => <ActivityIndicator />
+export const Loader: React.FunctionComponent = ({ children }) => (
+  <LoaderContainer>
+    <ActivityIndicator />
+    {children}
+  </LoaderContainer>
+)
 
 const ActivityIndicator = styled.div`
   width: 98%;
@@ -10,7 +16,7 @@ const ActivityIndicator = styled.div`
   border-radius: 6px;
   animation: loading 1s linear infinite alternate;
 
-  @keyframes loading2 {
+  @keyframes loading {
     0% {
       width: 0;
     }
@@ -20,3 +26,5 @@ const ActivityIndicator = styled.div`
     }
   }
 `
+
+const LoaderContainer = styled.div``

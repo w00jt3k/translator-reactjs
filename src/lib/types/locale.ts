@@ -6,5 +6,13 @@ export type Dictionary = {
       github: string
       discord: string
     }
+    screen: {
+      translator: {
+        loading: string
+      }
+    }
+    message: {
+      tryAgain: string
+    }
   }
 }
